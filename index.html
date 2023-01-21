@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="search-wrapper">
+        <!-- <label for="search">Search Country</label> -->
+        <input
+          type="search"
+          id="search"
+          placeholder="Search for a country..."
+        />
+        <div class="region-dropdown">
+          <div id="dropdown-button">
+            <div class="dropdown-header">Filter by Region</div>
+            <div class="arrow">^</div>
+          </div>
+          <div class="regions hide">
+            <div class="region-filter">All</div>
+            <div class="region-filter">Africa</div>
+            <div class="region-filter">America</div>
+            <div class="region-filter">Asia</div>
+            <div class="region-filter">Europe</div>
+            <div class="region-filter">Oceania</div>
+            <div class="region-filter">Antarctic</div>
+          </div>
+        </div>
+      </div>
+      <div id="card-container"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
