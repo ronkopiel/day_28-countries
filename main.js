@@ -2,13 +2,16 @@
 const cardContainer = document.getElementById("card-container");
 const searchInput = document.getElementById("search");
 let countries = [];
-searchInput.addEventListener("input", (e) => {
-  const value = e.target.value.toLowerCase();
-  countries.forEach((country) => {
-    const isVisible = country.name.toLowerCase().includes(value);
-    country.element.classList.toggle("hide", !isVisible);
-  });
-});
+searchInput.addEventListener(
+  "input",
+  debounce((e) => {
+    const value = e.target.value.toLowerCase();
+    countries.forEach((country) => {
+      const isVisible = country.name.toLowerCase().includes(value);
+      country.element.classList.toggle("hide", !isVisible);
+    });
+  })
+);
 document.addEventListener("click", (e) => {
   if (e.target.className == "region-filter") {
     const value = e.target.textContent.toLowerCase();
@@ -121,3 +124,13 @@ const populationHypenated = (number) => {
   str = (number % 1000).toString() + str;
   return str;
 };
+function debounce(func, timeout = 300) {
+  let timer;
+  console.log(timer);
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+}
